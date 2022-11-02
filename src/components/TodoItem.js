@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './TodoItem.module.css';
 
 class TodoItem extends React.Component {
   constructor(props) {
@@ -16,9 +17,10 @@ class TodoItem extends React.Component {
     };
     const { todo, deleteTodoProps, handleChangeProps } = this.props;
     return (
-      <li>
+      <li className={styles.item}>
         <input
           type="checkbox"
+          className={styles.checkbox}
           checked={todo.completed}
           onChange={() => handleChangeProps(todo.id)}
         />
