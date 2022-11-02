@@ -8,6 +8,12 @@ class TodoItem extends React.Component {
   }
 
   render() {
+    const completedStyle = {
+      fontStyle: 'italic',
+      color: '#595959',
+      opacity: 0.4,
+      textDecoration: 'line-through',
+    };
     const { todo, deleteTodoProps, handleChangeProps } = this.props;
     return (
       <li>
@@ -19,7 +25,9 @@ class TodoItem extends React.Component {
         <button type="button" onClick={() => deleteTodoProps(todo.id)}>
           Delete
         </button>
-        {todo.title}
+        <span style={todo.completed ? completedStyle : null}>
+          {todo.title}
+        </span>
       </li>
     );
   }
