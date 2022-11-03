@@ -9,7 +9,9 @@ class TodosList extends React.Component {
   }
 
   render() {
-    const { todos, deleteTodoProps, handleChangeProps } = this.props;
+    const {
+      todos, deleteTodoProps, handleChangeProps, setUpdate,
+    } = this.props;
     return (
       <ul>
         {todos.map((todo) => (
@@ -18,6 +20,7 @@ class TodosList extends React.Component {
             todo={todo}
             handleChangeProps={handleChangeProps}
             deleteTodoProps={deleteTodoProps}
+            setUpdate={setUpdate}
           />
         ))}
       </ul>
@@ -29,6 +32,7 @@ TodosList.propTypes = {
   todos: PropTypes.instanceOf(Object).isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   handleChangeProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodosList;
